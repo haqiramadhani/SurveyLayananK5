@@ -1,0 +1,10 @@
+Tabel Data K5
+- diberikan grafik hasil penilaian per field (Kebersihan,Ketertiban, Keamanan,..ect)
+- Voice note masuk pada field keterangan dalam database
+- ketika di klik field pada 5 katagori keluar popup penilaian (sangat Baik, Baik, Cukup) dan otomatis kembali ke halaman menu
+  dengan popup keterangan " terima kasih telah memberikan penilaian"
+- pada admin menu ada:
+	a) Add, Edit , Remove nama2 tim 1. Tim Keamanan, 2. Tim Cleaning 
+	b) Download Data Excel 
+	c) Download Grafik Image
+	d) Listening Voice note 
