@@ -30,20 +30,26 @@ export default VoiceScreen = props => {
 
   const handleSubmit = async () => {
     if (file === '') return null;
-    const data = {
-      file,
-    };
+    var data = new FormData();
+    data.append("file", {
+      uri: file.replace('//', '///'),
+      name: 'note.mp3',
+      type: 'audio/mpeg'
+    });
     const config = {
       headers: {
-        'Content-Type': 'multipart/form-data',
-      },
+        "content-type": "multipart/form-data"
+      }
     };
-    await Axios.post('url', data, config)
+    // Axios.post('http://192.168.43.174:8080/voice', data, config)
+    Axios.post('http://3.90.7.176:8080/voice', data, config)
     .then(r => {
       Alert.alert('K5 Voice Note', r.data.message);
       props.navigation.goBack();
+      console.warn(r);
     })
-    .catch(e => Alert.alert('K5 Voice Note', 'Failed to connect!'));
+    .catch(e => console.warn(e));
+    console.warn('hore')
   };
   
   return (

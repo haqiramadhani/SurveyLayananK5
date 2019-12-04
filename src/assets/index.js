@@ -12,6 +12,7 @@ const back = require('./back.png');
 const sangatBaik = require('./sangatBaik.png');
 const baik = require('./baik.png');
 const cukup = require('./cukup.png');
+const kurang = require('./kurang.png');
 
 export {
     background,
@@ -28,4 +29,5 @@ export {
     sangatBaik,
     baik,
     cukup,
+    kurang,
 }

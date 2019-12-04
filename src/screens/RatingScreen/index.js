@@ -3,7 +3,7 @@ import {View, Image, Text, TouchableOpacity, Alert} from 'react-native';
 import Axios from 'axios';
 
 import {BackgroundComponent} from '../../components';
-import {logoPendidikan, back, sangatBaik, logo, maskot, baik, cukup} from '../../assets';
+import {logoPendidikan, back, sangatBaik, logo, maskot, baik, cukup, kurang} from '../../assets';
 import styles from './styles';
 
 export default RatingScreen = props => {
@@ -15,12 +15,13 @@ export default RatingScreen = props => {
       rating,
     };
     // console.warn(data);
-    await Axios.post('url', data)
+    await Axios.post('http://3.90.7.176:8080/survey', data)
     .then(r => {
       Alert.alert('K5 Survey', r.data.message);
       props.navigation.goBack();
+      console.warn(r);
     })
-    .catch(e => Alert.alert('K5 Survey', 'Failed to connect!'));
+    .catch(e => console.warn(e)); // Alert.alert('K5 Survey', 'Failed to connect!')
   };
 
   useEffect(() => {
@@ -54,6 +55,10 @@ export default RatingScreen = props => {
         <TouchableOpacity onPress={() => handleSubmit('Cukup')}>
           <Image source={cukup} style={styles.buttonIcon}/>
           <Text style={styles.buttonText}>CUKUP</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => handleSubmit('Kurang')}>
+          <Image source={kurang} style={styles.buttonIcon}/>
+          <Text style={styles.buttonText}>KURANG</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.bottomSection}>
